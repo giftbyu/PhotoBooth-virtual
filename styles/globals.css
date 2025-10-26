@@ -1,26 +1,293 @@
-@import "tailwindcss";
+/* 1. Tiga baris wajib Tailwind v4 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 2. Di bawah ini adalah SEMUA kode CSS dari file htmlphto.html Anda */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 3. Menerapkan font dasar (Gaya Vintage Simple/Elegan) */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lora', serif; /* Font serif untuk body */
+    background-color: #d7ccc8; /* Krem/beige lembut */
+    color: #3e2723; /* Coklat tua untuk teks */
+    position: relative;
+    overflow-x: hidden; /* Hindari scroll horizontal */
 }
+
+/* Overlay tekstur kertas/noise halus */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAAAeQf4oAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYSVAgQ29yZSA1LjUtYzAxNCA3OS4xNTE0ODEsIDIwMTMvMDkvMDktMDE6MDc6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NOImh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1wOmNyZWF0b3J0b29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjgxRUU4NTc2MkIwOTMxMUU4ODNGQUVDQUQxNTg2MDQ1MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4M0U4NTc2M0IwOTMxMUU4ODNGQUVDQUQxNTg2MDQ1MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg3MDIzNjgzQjA4OTExRThBNjBBOEE1RjMzRkE3QzdDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg3MDIzNjgzQjA4OTExRThBNjBBOEE1RjMzRkE3QzdDIi8+IDwvcmRmOkRlc2NyaXB0WGlvbiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+PjMhLwgAAAAWSURBVHjaYmBgYGBkYGTkZGZiAAgwAAAoAA+9oE0oAAAAAElFTkSuQmCC'); /* Tekstur noise halus */
+    opacity: 0.08; /* Sangat transparan */
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Font untuk judul */
+.font-vintage-title {
+    font-family: 'Playfair Display', serif; /* Font elegan dan klasik */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Sedikit bayangan */
+    color: #5d4037; /* Coklat lebih gelap */
+}
+
+/* Efek 'flash' saat mengambil foto */
+.flash {
+    animation: flashAnimation 0.5s ease;
+}
+@keyframes flashAnimation {
+    0% { opacity: 1; filter: brightness(1.2); }
+    50% { opacity: 0.1; filter: brightness(0.8); }
+    100% { opacity: 1; filter: brightness(1); }
+}
+
+/* Gaya frame untuk galeri foto */
+.vintage-elegant-frame-gallery {
+    border: 2px solid #a1887f; /* Coklat keabu-abuan lembut */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih lembut */
+    border-radius: 8px; /* Sudut membulat halus */
+    overflow: hidden;
+    background-color: #efebe9; /* Latar belakang terang untuk kontras */
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    padding-top: 125%; /* Aspek rasio 4:5 (1080 / 1350) */
+}
+
+/* Pastikan gambar mengisi frame galeri */
+.vintage-elegant-frame-gallery img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop gambar agar pas */
+}
+
+.vintage-elegant-frame-gallery:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* (BARU) Kelas Filter Foto */
+.filter-vintage {
+    filter: sepia(0.2) contrast(1.1) brightness(1.05) saturate(1.3) hue-rotate(-5deg);
+}
+.filter-bw {
+    filter: grayscale(1) contrast(1.1) brightness(1.05);
+}
+.filter-natural {
+    filter: none;
+}
+
+/* Gaya tombol utama */
+.btn-vintage-elegant {
+    background-color: #8d6e63; /* Coklat sedang */
+    border: 1px solid #6d4c41; /* Coklat tua untuk border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #f5f5dc; /* Teks krem */
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.btn-vintage-elegant:hover {
+    background-color: #6d4c41; /* Coklat tua saat hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: translateY(-1px);
+}
+.btn-vintage-elegant:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.btn-vintage-elegant:disabled {
+    background-color: #a1887f;
+    cursor: not-allowed;
+}
+
+/* Gaya Kartu Pilihan Mode */
+.card-choice {
+    background-color: #fdfcfc;
+    border: 2px solid #d7ccc8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.card-choice:hover {
+    border-color: #8d6e63;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+.card-choice-icon { font-size: 3rem; line-height: 1; }
+.card-choice-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #5d4037;
+}
+
+/* Gaya Kartu Pilihan Layout */
+.layout-choice {
+    background-color: #fdfcfc;
+    border: 2px solid #d7ccc8;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.layout-choice:hover {
+    border-color: #8d6e63;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+/* Pratinjau visual untuk pilihan layout */
+.layout-preview {
+    width: 100px; /* Lebar pratinjau */
+    height: 125px; /* Tinggi pratinjau (rasio 4:5) */
+    border: 2px solid #a1887f;
+    background: #efebe9;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.layout-preview-box {
+    background-color: #d7ccc8;
+    border: 1px dashed #a1887f;
+    width: 100%;
+    flex-grow: 1; /* Mengisi ruang yang tersedia */
+}
+.layout-choice-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #5d4037;
+    margin-top: 1rem;
+}
+
+/* Tombol sekunder (ide LDR) */
+.btn-vintage-secondary-elegant {
+    background-color: transparent;
+    border: 1px solid #a1887f; /* Coklat keabu-abuan */
+    color: #a1887f; /* Teks sesuai border */
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+.btn-vintage-secondary-elegant:hover {
+    background-color: #efebe9; /* Latar belakang terang saat hover */
+    color: #6d4c41; /* Teks coklat tua */
+    border-color: #6d4c41;
+}
+
+/* (BARU) Tombol Pilihan Opsi */
+.option-button {
+    background-color: #fdfcfc;
+    border: 2px solid #d7ccc8;
+    color: #5d4037;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+}
+.option-button:hover {
+    border-color: #a1887f;
+}
+.option-button.selected {
+    border-color: #6d4c41;
+    background-color: #efebe9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+
+/* Input Teks Kustom */
+.vintage-input {
+    width: 100%;
+    border: 2px solid #a1887f;
+    background-color: #fdfcfc;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-family: 'Lora', serif;
+    color: #3e2723;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+.vintage-input:focus {
+    outline: none;
+    border-color: #6d4c41;
+    box-shadow: 0 0 10px rgba(141, 110, 99, 0.3);
+}
+
+/* Area caption di galeri */
+.caption-display {
+    background-color: #efebe9;
+    border-top: 1px dashed #d7ccc8;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 10px;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #5d4037;
+    text-align: center;
+}
+.caption-text { word-wrap: break-word; line-height: 1.4; }
+
+/* Efek vignette */
+.vignette-container {
+    position: relative;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0); /* Vignette */
+    z-index: 0;
+}
+
+/* Grid galeri */
+#galleryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* === CSS UNTUK VIDEO CROPPING === */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000; /* Fallback jika video lambat load */
+    border-radius: 4px; /* Bulat halus */
+}
+/* Rasio untuk slot Polaroid (1000:1070) & Quad (480:515) -> keduanya ~0.93 (Tinggi) */
+.video-wrapper.aspect-tall {
+    aspect-ratio: 100 / 107; 
+}
+/* Rasio untuk slot Duo (1000:515) -> ~1.94 (Lebar) */
+.video-wrapper.aspect-wide {
+    aspect-ratio: 1000 / 515;
+}
+/* Paksa video untuk mengisi wrapper & di-crop */
+.video-wrapper video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Ini adalah kuncinya: Memotong video agar pas */
+}
+/* === AKHIR VIDEO CROPPING === */
