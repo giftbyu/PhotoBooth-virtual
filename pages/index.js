@@ -93,12 +93,12 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-8">
                   <button onClick={() => handleSelectMode('solo')} className="card-choice text-center group">
                     <div className="card-choice-icon mb-4 transform transition-transform duration-300 group-hover:scale-110">👤</div>
-                    <h3 className="card-choice-title mb-1">[A Portrait of Introspection]</h3>
+                    <h3 className="card-choice-title mb-1">A Portrait of Introspection</h3>
                     <p className="text-gray-600">{"For a Solitary Grace. A refined token for your Beloved."}</p>
                   </button>
                   <button onClick={() => handleSelectMode('ldr')} className="card-choice text-center group">
                     <div className="card-choice-icon mb-4 transform transition-transform duration-300 group-hover:scale-110">🧑‍🤝‍🧑</div>
-                    <h3 className="card-choice-title mb-2">[The Union of Two Souls]</h3>
+                    <h3 className="card-choice-title mb-2">The Union of Two Souls</h3>
                     <p className="text-gray-600">{"Unite your affection. Distance is but a mere jest in this frame."}</p>
                   </button>
                   
