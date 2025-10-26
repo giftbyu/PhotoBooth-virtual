@@ -335,7 +335,7 @@ function Photobooth({ options, onBack, onFinish }) {
             videoLabelsRef.current.classList.remove('hidden'); // Tampilkan label
             // Ganti label video kedua jika LDR
              if(videoLabelsRef.current.children[1]) {
-                videoLabelsRef.current.children[1].textContent = "Pasangan Anda";
+                videoLabelsRef.current.children[1].textContent = "Your partner";
             }
         }
     }
@@ -352,7 +352,7 @@ function Photobooth({ options, onBack, onFinish }) {
     setCountdownText('3'); await sleep(1000);
     setCountdownText('2'); await sleep(1000);
     setCountdownText('1'); await sleep(1000);
-    setCountdownText('CEKREK!');
+    setCountdownText('Cheesee!');
     if (videoContainerRef.current) videoContainerRef.current.classList.add('flash');
     await sleep(500);
     if (videoContainerRef.current) videoContainerRef.current.classList.remove('flash');
@@ -457,7 +457,7 @@ function Photobooth({ options, onBack, onFinish }) {
         // Pastikan kedua video siap
         if (!localVid || !remoteVid || localVid.videoWidth === 0 || remoteVid.videoWidth === 0 || !localWrap) {
              console.error("Video elements not ready for capture (LDR Duo/Polaroid).");
-             setError("Gagal mengambil gambar: Video pasangan belum siap.");
+             setError("Failed to capture image: Partner video not ready.");
              return null;
         }
 
@@ -737,7 +737,7 @@ function Photobooth({ options, onBack, onFinish }) {
    async function startPhotoStripSequence() {
      // Jangan mulai jika LDR belum terhubung
      if (mode === 'ldr' && !isLdrConnected) {
-       alert("Menunggu pasangan terhubung...");
+       alert("Waiting for the pair to connect...");
        return;
      }
        setIsCapturing(true); // Disable tombol capture & back
@@ -825,7 +825,7 @@ function Photobooth({ options, onBack, onFinish }) {
              {/* Tambahkan pesan loading atau menunggu koneksi */}
              {mode === 'ldr' && !isLdrConnected && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-700 text-white italic text-center p-4">
-                    Menunggu pasangan bergabung...<br/>Pastikan nama room sama.
+                    Waiting for your partner to join...<br/>Ensure the room name is the same.
                 </div>
               )}
                {/* Video remote, srcObject diatur oleh state remoteStream */}
@@ -845,25 +845,25 @@ function Photobooth({ options, onBack, onFinish }) {
         {/* Overlay Review (Tampil jika showReview true) */}
         {showReview && (
           <div ref={reviewOverlayRef} id="reviewOverlay" className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center z-30 rounded-lg p-4">
-             <h2 className="text-white text-3xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", textShadow: "1px 1px 4px rgba(0,0,0,0.5)" }}>Pratinjau Foto</h2>
+             <h2 className="text-white text-3xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", textShadow: "1px 1px 4px rgba(0,0,0,0.5)" }}>Photo Preview</h2>
              {/* Canvas untuk menampilkan preview */}
              <canvas ref={reviewCanvasRef} id="reviewCanvas" className="w-auto h-3/5 max-w-full rounded-md border-4 border-white shadow-lg bg-gray-500"></canvas>
              <div className="flex gap-4 mt-6">
                  {/* Tombol ini perlu listener onClick yang di-handle oleh showReviewScreen */}
                  {/* Karena showReviewScreen mengatur listener via ID, kita biarkan ID-nya */}
-                 <button id="retakeButton" className="btn-vintage-secondary-elegant bg-white !text-gray-800 py-3 px-6 rounded-md text-lg">Ulangi</button>
-                 <button id="keepButton" className="btn-vintage-elegant py-3 px-6 rounded-md text-lg">Simpan & Lanjut</button>
+                 <button id="retakeButton" className="btn-vintage-secondary-elegant bg-white !text-gray-800 py-3 px-6 rounded-md text-lg">Retake</button>
+                 <button id="keepButton" className="btn-vintage-elegant py-3 px-6 rounded-md text-lg">Save & Continue</button>
              </div>
-             <p id="reviewTimerText" className="text-white text-lg mt-4">Melanjutkan dalam {reviewTimer}...</p>
+             <p id="reviewTimerText" className="text-white text-lg mt-4">Continue in {reviewTimer}...</p>
           </div>
         )}
       </div>
 
       {/* Label Video */}
       <div ref={videoLabelsRef} id="videoLabels" className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 -mt-4 px-4 text-center text-gray-700 italic">
-        <p>Anda</p>
+        <p>You</p>
         {/* Label kedua akan diubah oleh useEffect jika LDR */}
-        <p>Pasangan Anda (Simulasi)</p>
+        <p>Your Partner</p>
       </div>
 
       {/* Tombol Kontrol */}
@@ -895,7 +895,7 @@ function Photobooth({ options, onBack, onFinish }) {
           className="text-gray-600 hover:text-gray-800 italic disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={isCapturing} // Disable jika sedang capture
         >
-          &larr; Batalkan & Kembali
+          &larr; Cancel & Return
         </button>
       </div>
 
