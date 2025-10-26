@@ -36,7 +36,7 @@ function Photobooth({ options, onBack, onFinish }) {
   const [countdownText, setCountdownText] = useState(''); // Teks overlay countdown ('3', '2', '1', 'CEKREK!')
   const [showReview, setShowReview] = useState(false); // Menampilkan/menyembunyikan overlay review foto
   const [reviewTimer, setReviewTimer] = useState(8); // Timer hitung mundur di layar review
-  const [captureButtonText, setCaptureButtonText] = useState(`Ambil ${photoCount}-Foto Strip`); // Teks tombol capture
+  const [captureButtonText, setCaptureButtonText] = useState(`Take ${photoCount} Photo Strip`); // Teks tombol capture
   const [isLdrConnected, setIsLdrConnected] = useState(false); // Status koneksi WebRTC untuk LDR
   const [error, setError] = useState(null); // Menyimpan pesan error (misal: gagal akses kamera)
 
@@ -758,7 +758,7 @@ function Photobooth({ options, onBack, onFinish }) {
             // Handle jika capture gagal (misal video belum siap)
             if (!frameCanvas) {
                 console.error("Capture failed for pose", poseNumber);
-                setError("Gagal mengambil gambar. Silakan coba lagi.");
+                setError("Failed to take a picture. Please try again.");
                 setIsCapturing(false); // Enable tombol lagi
                 if (backButtonRef.current) backButtonRef.current.classList.remove('hidden'); // Tampilkan tombol back
                 return; // Hentikan sequence
