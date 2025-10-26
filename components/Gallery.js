@@ -13,7 +13,7 @@ function Gallery({ photos }) {
     // Ganti 'class' -> 'className'
     <div id="gallerySection" className="mt-12 p-8 bg-white rounded-lg shadow-md border border-gray-200">
       <h2 className="text-2xl md:text-3xl font-vintage-title text-center mb-8">
-        Galeri Kenangan Anda 📸
+        Your Memory Gallery 📸
       </h2>
 
       {/* Ganti #galleryContainer dengan div ini */}

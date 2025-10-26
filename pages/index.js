@@ -97,7 +97,7 @@ export default function Home() {
                     <p className="text-gray-600">{"For a Solitary Grace. A refined token for your Beloved."}</p>
                   </button>
                   <button onClick={() => handleSelectMode('ldr')} className="card-choice text-center group">
-                    <div className="card-choice-icon mb-4 transform transition-transform duration-300 group-hover:scale-110">🧑‍🤝‍🧑</div>
+                    <div className="card-choice-icon mb-4 transform transition-transform duration-300 group-hover:scale-110">🫶🏻🫶🏻</div>
                     <h3 className="card-choice-title mb-2">The Union of Two Souls</h3>
                     <p className="text-gray-600">{"Unite your affection. Distance is but a mere jest in this frame."}</p>
                   </button>
