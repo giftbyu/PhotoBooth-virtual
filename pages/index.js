@@ -154,9 +154,9 @@ export default function Home() {
                   <div className="mb-6">
                     <h2 className="text-xl font-vintage-title text-gray-700 mb-3">Choose Your Frame Colour</h2>
                     <div id="stripColorOptions" className="flex flex-wrap gap-4">
-                      <button onClick={() => handleOptionChange('stripColor', '#efebe9')} className={`option-button ${options.stripColor === '#efebe9' ? 'selected' : ''}`}><span className="color-swatch" style={{backgroundColor: '#efebe9'}}></span>Krem</button>
-                      <button onClick={() => handleOptionChange('stripColor', '#222222')} className={`option-button ${options.stripColor === '#222222' ? 'selected' : ''}`}><span className="color-swatch" style={{backgroundColor: '#222222'}}></span>Hitam</button>
-                      <button onClick={() => handleOptionChange('stripColor', '#5d4037')} className={`option-button ${options.stripColor === '#5d4037' ? 'selected' : ''}`}><span className="color-swatch" style={{backgroundColor: '#5d4037'}}></span>Coklat</button>
+                      <button onClick={() => handleOptionChange('stripColor', '#efebe9')} className={`option-button ${options.stripColor === '#efebe9' ? 'selected' : ''}`}><span className="color-swatch" style={{backgroundColor: '#efebe9'}}></span>Cream</button>
+                      <button onClick={() => handleOptionChange('stripColor', '#222222')} className={`option-button ${options.stripColor === '#222222' ? 'selected' : ''}`}><span className="color-swatch" style={{backgroundColor: '#222222'}}></span>Black</button>
+                      <button onClick={() => handleOptionChange('stripColor', '#5d4037')} className={`option-button ${options.stripColor === '#5d4037' ? 'selected' : ''}`}><span className="color-swatch" style={{backgroundColor: '#5d4037'}}></span>Chocolate</button>
                     </div>
                   </div>
                   {/* Input Teks Kustom */}
